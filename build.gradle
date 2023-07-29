@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'PruebaApi'
+version '1.0.SNAPSHOT'
+
+sourceCompability = 1.8
+repositories {
+  mavenCental()
+}
+dependencies {
+    // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.3'
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '6.10.3'
+    testImplementation'io.cucumber:cucumber-junit:6.10.3'
+    implementation group: 'tech.grasshopper', name: 'extentreports-cucumber6-adapter', version: '2.8.1'
+    compile group: 'org.json', name: 'json', version: '20180813'
+    testImplementation (plataform('org.junit:junit-bom:5.7.1'))
+    testImplementation ('org.junit.jupiter:junit-jupiter')
+    // https://mvnrepository.com/artifact/org.testng/testng
+  testImplementation group: 'org.testng', name: 'testng', version: '7.8.0'
+
+
+}
+
+test{
+  systemProperty "cucumber.options", System.getProperty("cucumber.options")
+}
